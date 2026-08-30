@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Quinta Estrela Começa com Você - Campanha de Doações A.A.A.W.N.C.</title>
+    <!-- Google Fonts para tipografia moderna -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variáveis de Cores (Mesma identidade da Atlética) */
+        :root {
+            --primary-dark: #0A1931; /* Azul Escuro */
+            --primary-medium: #15305B;
+            --accent-blue: #1E56A0; /* Azul de Destaque */
+            --light-bg: #F4F6F9;
+            --white: #FFFFFF;
+            --text-dark: #1F2937;
+            --text-muted: #4B5563;
+            --border-color: #E5E7EB;
+            --accent-gold: #D4AF37; /* Toque dourado para a 5ª Estrela */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--primary-dark);
+            padding: 20px 0;
+            border-bottom: 2px solid var(--accent-blue);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            max-height: 60px;
+            width: auto;
+        }
+
+        .logo-text h1 {
+            color: var(--white);
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: var(--light-bg);
+            font-size: 0.85rem;
+            opacity: 0.8;
+            display: block;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            /* SUBSTUTUA 'hero_bg.jpg' PELA SUA IMAGEM DE FUNDO DA HERO NA PASTA DO PROJETO */
+            background: linear-gradient(rgba(10, 25, 49, 0.92), rgba(21, 48, 91, 0.92)), url('hero_bg.jpg') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 25px auto;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        /* Botões rápidos da Hero */
+        .hero-btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--accent-blue);
+            color: var(--white);
+            padding: 10px 25px;
+            font-weight: 700;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 0.95rem;
+        }
+
+        .hero-btn:hover {
+            background-color: var(--white);
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .hero-btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .hero-btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-dark);
+        }
+
+        /* --- SEÇÃO DO CATÁLOGO (TRAZIDA PARA O TOPO) --- */
+        .catalog-section {
+            padding: 50px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-blue);
+        }
+
+        /* Container do Menu Expansível (Dropdown) */
+        .filter-select-container {
+            max-width: 400px;
+            margin: 0 auto 40px auto;
+            text-align: center;
+            padding: 0 15px;
+        }
+
+        .filter-select-label {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-select {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 1rem;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            color: var(--primary-dark);
+            background-color: var(--white);
+            border: 2px solid var(--accent-blue);
+            border-radius: 8px;
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            /* Visual limpo no mobile */
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg fill='%231E56A0' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+        }
+
+        .filter-select:focus {
+            border-color: var(--primary-dark);
+            box-shadow: 0 0 8px rgba(30, 86, 160, 0.2);
+        }
+
+        /* Grid de Produtos */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        /* Card de Produto */
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Imagem do Produto */
+        .product-image-container {
+            width: 100%;
+            height: 180px;
+            background-color: #E2E8F0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+
+        /* Corpo do Card */
+        .product-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 5px;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            height: 50px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+
+        .product-btn {
+            display: block;
+            background-color: var(--primary-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+            margin-top: auto;
+        }
+
+        .product-btn:hover {
+            background-color: var(--accent-blue);
+        }
+
+        /* Estilo especial para o Card de Doação Livre */
+        .product-card.free-donation {
+            border: 2px dashed var(--accent-gold);
+            background-color: #FFFDF5;
+        }
+
+        .product-card.free-donation .product-image-container {
+            background-color: #FEF3C7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-card.free-donation .product-category {
+            color: var(--accent-gold);
+        }
+
+        .free-donation-icon {
+            font-size: 4rem;
+            color: var(--accent-gold);
+        }
+
+        /* --- SEÇÃO DO MANIFESTO (MOVIDA PARA BAIXO DO CATÁLOGO) --- */
+        .manifesto-section {
+            background-color: var(--white);
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .manifesto-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .manifesto-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .manifesto-title h3 {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+        }
+
+        .manifesto-text p {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .manifesto-highlight {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            border-left: 4px solid var(--accent-blue);
+            border-right: 4px solid var(--accent-blue);
+            background-color: var(--light-bg);
+        }
+
+        .manifesto-signature {
+            font-weight: 700;
+            color: var(--accent-blue);
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 30px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 40px 0 20px 0;
+            border-top: 4px solid var(--accent-blue);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent-blue);
+        }
+
+        .footer-col p, .footer-col li {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 1.6rem;
+            }
+            .hero p {
+                font-size: 0.95rem;
+                margin-bottom: 15px;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container header-content">
+            <div class="logo-area">
+                <img src="images/logo.jpg" alt="Logo A.A.A.W.N.C." class="logo-img" onerror="this.style.display='none'">
+                <div class="logo-text">
+                    <h1>A.A.A.W.N.C.</h1>
+                    <span>Medicina UFF</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <h2>A quinta estrela começa com você.</h2>
+            <p>Ajude a colocar um Leão em quadra, na pista ou nos campos. Escolha sua contribuição abaixo!</p>
+            <div class="hero-btn-container">
+                <a href="#catalogo" class="hero-btn">Escolher Item</a>
+                <a href="#manifesto" class="hero-btn hero-btn-outline">Nossa História</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATÁLOGO (TRAZIDO PARA CIMA) -->
+    <section class="catalog-section" id="catalogo">
+        <div class="container">
+            <div class="section-title">
+                <h2>Como deseja contribuir?</h2>
+            </div>
+
+            <!-- Filtros por Modalidade (Menu Expansível / Dropdown) -->
+            <div class="filter-select-container">
+                <label for="modalityFilter" class="filter-select-label">Filtrar por Modalidade:</label>
+                <select id="modalityFilter" class="filter-select" onchange="filterCatalogBySelect()">
+                    <option value="todos">Mostrar Todas as Opções</option>
+                    <option value="handebol">Handebol</option>
+                    <option value="futsal">Futsal</option>
+                    <option value="volei">Vôlei</option>
+                    <option value="basquete">Basquete</option>
+                    <option value="futcampo">Futebol de Campo</option>
+                    <option value="natacao">Natação</option>
+                    <option value="atletismo">Atletismo</option>
+                    <option value="cheerleading">Cheerleading</option>
+                    <option value="cabo-de-guerra">Cabo de Guerra</option>
+                </select>
+            </div>
+
+            <!-- Grid de Produtos -->
+            <div class="product-grid">
+
+                <!-- COLA DE HANDEBOL -->
+                <div class="product-card" data-modality="handebol">
+                    <div class="product-image-container">
+                        <!-- COLOQUE A FOTO DA COLA DE HANDEBOL EM 'cola_handebol.jpg' -->
+                        <img src="cola_handebol.jpg" alt="Cola de Handebol" class="product-img" onerror="this.style.opacity='0.5'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Handebol</span>
+                        <h3 class="product-title">Cola de Handebol</h3>
+                        <p class="product-price">R$ 35,00</p>
+                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Item</a>
+                    </div>
+                </div>
+
+                <!-- TREINO EXTRA FUTSAL FEMININO -->
+                <div class="product-card" data-modality="futsal">
+                    <div class="product-image-container">
+                        <!-- COLOQUE A FOTO EM 'futsal_fem.jpg' -->
+                        <img src="futsal_fem.jpg" alt="Treino Futsal Feminino" class="product-img" onerror="this.style.opacity='0.5'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Futsal</span>
+                        <h3 class="product-title">Treino Extra - Futsal Feminino</h3>
+                        <p class="product-price">R$ 120,00</p>
+                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                    </div>
+                </div>
+
+                <!-- TREINO EXTRA FUTSAL MASCULINO -->
+                <div class="product-card" data-modality="futsal">
+                    <div class="product-image-container">
+                        <!-- COLOQUE A FOTO EM 'futsal_masc.jpg' -->
+                        <img src="futsal_masc.jpg" alt="Treino Futsal Masculino" class="product-img" onerror="this.style.opacity='0.5'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Futsal</span>
+                        <h3 class="product-title">Treino Extra - Futsal Masculino</h3>
+                        <p class="product-price">R$ 120,00</p>
+                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                    </div>
+                </div>
+
+                <!-- TREINO EXTRA VÔLEI FEMININO -->
+                <div class="product-card" data-modality="volei">
+                    <div class="product-image-container">
+                        <!-- COLOQUE A FOTO EM 'volei_fem.jpg' -->
+                        <img src="volei_fem.jpg" alt="Treino Vôlei Feminino" class="product-img" onerror="this.style.opacity='0.5'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Vôlei</span>
+                        <h3 class="product-title">Treino Extra - Vôlei Feminino</h3>
+                        <p class="product-price">R$ 120,00</p>
+                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                    </div>
+                </div>
+
+                <!-- TREINO EXTRA VÔLEI MASCULINO -->
+                <div class="product-card" data-modality="volei">
+                    <div class="product-image-container">
+                        <!-- COLOQUE A FOTO EM 'volei_masc.jpg' -->
+                        <img src="volei_masc.jpg" alt="Treino Vôlei Masculino" class="product-img" onerror="this.style.opacity='0.5'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Vôlei</span>
+                        <h3 class="product-title">Treino Extra - Vôlei Masculino</h3>
+                        <p class="product-price">R$ 120,00</p>
+                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                    </div>
+                </div>
+
+                <!-- TREINO EXTRA FUTCAMPO -->
+                <div class="product-card" data-modality="futcampo">
+                    <div class="product-image-container">
+                        <!-- COLOQUE A FOTO EM 'futcampo.jpg' -->
+                        <img src="futcampo.jpg" alt="Treino Futcampo" class="product-img" onerror="this.style.opacity='0.5'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Futebol de Campo</span>
+                        <h3 class="product-title">Treino Extra - Futebol de Campo</h3>
+                        <p class="product-price">R$ 120,00</p>
+                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                    </div>
+                </div>
+
+                <!-- TREINO EXTRA HANDEBOL FEMININO -->
+                <div class="product-card" data-modality="handebol">
+                    <div class="product-image-container">
+                        <!-- COLOQUE A FOTO EM 'handebol_fem.jpg' -->
+                        <img src="handebol_fem.jpg" alt="Treino Handebol Feminino" class="product-img" onerror="this.style.opacity='0.5'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Handebol</span>
+                        <h3 class="product-title">Treino Extra - Handebol Feminino</h3>
+                        <p class="product-price">R$ 120,00</p>
+                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                    </div>
+                </div>
+
+                <!-- TREINO EXTRA HANDEBOL MASCULINO -->
+                <div class="product-card" data-modality="handebol">
+                    <div class="product-image-container">
+                        <!-- COLOQUE A FOTO EM 'handebol_masc.jpg' -->
+                        <img src="handebol_masc.jpg" alt="Treino Handebol Masculino" class="product-img" onerror="this.style.opacity='0.5'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Handebol</span>
+                        <h3 class="product-title">Treino Extra - Handebol Masculino</h3>
+                        <p class="product-price">R$ 120,00</p>
+                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                    </div>
+                </div>
+
+                <!-- TREINO EXTRA BASQUETE FEMININO -->
+                <div class="product-card" data-modality="basquete">
+                    <div class="product-image-container">
+                        <!-- COLOQUE A FOTO EM 'basquete_fem.jpg' -->
+                        <img src="basquete_fem.jpg" alt="Treino Basquete Feminino" class="product-img" onerror="this.style.opacity='0.5'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Basquete</span>
+                        <h3 class="product-title">Treino Extra - Basquete Feminino</h3>
+                        <p class="product-price">R$ 120,00</p>
+                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                    </div>
+                </div>
+
+                <!-- TREINO EXTRA BASQUETE MASCULINO -->
+                <div class="product-card" data-modality="basquete">
+                    <div class="product-image-container">
+                        <!-- COLOQUE A FOTO EM 'basquete_masc.jpg' -->
+                        <img src="basquete_masc.jpg" alt="Treino Basquete Masculino" class="product-img" onerror="this.style.opacity='0.5'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Basquete</span>
+                        <h3 class="product-title">Treino Extra - Basquete Masculino</h3>
+                        <p class="product-price">R$ 120,00</p>
+                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                    </div>
+                </div>
+
+                <!-- TREINO EXTRA CABO DE GUERRA -->
+                <div class="product-card" data-modality="cabo-de-guerra">
+                    <div class="product-image-container">
+                        <!-- COLOQUE A FOTO EM 'cabo_guerra.jpg' -->
+                        <img src="cabo_guerra.jpg" alt="Treino Cabo de Guerra" class="product-img" onerror="this.style.opacity='0.5'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Cabo de Guerra</span>
+                        <h3 class="product-title">Treino Extra - Cabo de Guerra</h3>
+                        <p class="product-price">R$ 120,00</p>
+                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                    </div>
+                </div>
+
+                <!-- TREINO EXTRA NATAÇÃO -->
+                <div class="product-card" data-modality="natacao">
+                    <div class="product-image-container">
+                        <!-- COLOQUE A FOTO EM 'natacao.jpg' -->
+                        <img src="natacao.jpg" alt="Treino Natação" class="product-img" onerror="this.style.opacity='0.5'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Natação</span>
+                        <h3 class="product-title">Treino Extra - Natação</h3>
+                        <p class="product-price">R$ 120,00</p>
+                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                    </div>
+                </div>
+
+                <!-- TREINO EXTRA CHEERLEADING -->
+                <div class="product-card" data-modality="cheerleading">
+                    <div class="product-image-container">
+                        <!-- COLOQUE A FOTO EM 'cheerleading.jpg' -->
+                        <img src="cheerleading.jpg" alt="Treino Cheerleading" class="product-img" onerror="this.style.opacity='0.5'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Cheerleading</span>
+                        <h3 class="product-title">Treino Extra - Cheerleading</h3>
+                        <p class="product-price">R$ 120,00</p>
+                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                    </div>
+                </div>
+
+                <!-- TREINO ATLETISMO -->
+                <div class="product-card" data-modality="atletismo">
+                    <div class="product-image-container">
+                        <!-- COLOQUE A FOTO EM 'atletismo.jpg' -->
+                        <img src="atletismo.jpg" alt="Treino Atletismo" class="product-img" onerror="this.style.opacity='0.5'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Atletismo</span>
+                        <h3 class="product-title">Treino Extra - Atletismo</h3>
+                        <p class="product-price">R$ 120,00</p>
+                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                    </div>
+                </div>
+
+                <!-- DOAÇÃO LIVRE (Sempre visível / data-modality="livre") -->
+                <div class="product-card free-donation" data-modality="livre">
+                    <div class="product-image-container">
+                        <div class="free-donation-icon">⭐</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Campanha</span>
+                        <h3 class="product-title">Doação Livre (Qualquer Valor)</h3>
+                        <p class="product-price">Defina o valor</p>
+                        <a href="SUA_URL_DOACAO_LIVRE_OU_PIX" class="product-btn" style="background-color: var(--accent-gold);" target="_blank">Fazer Doação</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MANIFESTO / NOSSA HISTÓRIA (MOVIDO PARA BAIXO) -->
+    <section class="manifesto-section" id="manifesto">
+        <div class="container manifesto-container">
+            <div class="manifesto-title">
+                <h3>Rumo à Quinta Estrela!</h3>
+            </div>
+            <div class="manifesto-text">
+                <p>Há anos, os Leões da UFF entram em quadra, na pista e nos campos para representar muito mais do que uma faculdade. Representamos uma história, uma tradição e o orgulho de mais de 1.000 alunos.</p>
+                
+                <p>Somos tetra campeões do INTERMED RJ-ES. Já conquistamos medalhas, superamos grandes adversários e provamos que nossos atletas têm talento e dedicação de sobra. Mas, nos últimos anos, batemos na trave. E, muitas vezes, o que faltou não foi vontade de vencer, foi estrutura.</p>
+                
+                <div class="manifesto-highlight">
+                    "Hoje, temos mais de 100 atletas e 14 times buscando aquilo que já foi nosso: a hegemonia. Queremos voltar a ser invictos. Queremos a quinta estrela."
+                </div>
+
+                <p>E queremos fazer isso dando aos nossos atletas a preparação que eles merecem. Sua contribuição ajuda a custear treinos extras, equipamentos e melhores condições de preparação para nossos times.</p>
+                
+                <p>Você não está apenas fazendo uma doação. Está ajudando a colocar um Leão em quadra. Está fazendo parte de cada treino, de cada jogo, de cada vitória e, quem sabe, da conquista que ficará marcada na nossa história.</p>
+                
+                <p>A quinta estrela não será conquistada por um time sozinho. Ela será conquistada por todos nós. Escolha sua contribuição acima e venha fazer parte dessa caminhada.</p>
+                
+                <div class="manifesto-signature">
+                    Pra cima, Leões!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Sobre a A.A.A.W.N.C.</h4>
+                    <p>Associação Atlética Acadêmica Wallesca Nascimento da Costa. Unindo garra e paixão estudantil na Medicina da Universidade Federal Fluminense (UFF) rumo à quinta estrela.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Por que sua ajuda importa?</h4>
+                    <p>O esporte universitário de alto rendimento exige infraestrutura e dedicação diária. Ao contribuir, você cobre custos operacionais diretos para que nossos atletas treinem com qualidade e segurança.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato e Dúvidas</h4>
+                    <ul>
+                        <li>E-mail: financeiroaaawnc@gmail.com</li>
+                        <li>Instagram: @atleticamedicinauff</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 A.A.A.W.N.C. - Medicina UFF. Todos os direitos reservados.</p>
+		<p>CNPJ: 61.190.917/0001-90<p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE FILTROS COM COMPORTAMENTO EXCLUSIVO DA DOAÇÃO LIVRE -->
+    <script>
+        function filterCatalogBySelect() {
+            const select = document.getElementById('modalityFilter');
+            const selectedModality = select.value;
+            const cards = document.querySelectorAll('.product-card');
+
+            cards.forEach(card => {
+                const cardModality = card.getAttribute('data-modality');
+                
+                // Exibe se a opção selecionada for 'todos'
+                // OU se a modalidade do card bater com a selecionada
+                // OU se for o card de doação livre (data-modality="livre"), que SEMPRE aparece
+                if (selectedModality === 'todos' || cardModality === selectedModality || cardModality === 'livre') {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
