@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Quinta Estrela Começa com Você - Campanha de Doações A.A.A.W.N.C.</title>
+    <title>A.A.A.W.N.C. - Campanha de Doação</title>
     <!-- Google Fonts para tipografia moderna -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -86,8 +86,7 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            /* SUBSTUTUA 'hero_bg.jpg' PELA SUA IMAGEM DE FUNDO DA HERO NA PASTA DO PROJETO */
-            background: linear-gradient(rgba(10, 25, 49, 0.92), rgba(21, 48, 91, 0.92)), url('hero_bg.jpg') no-repeat center center/cover;
+            background: linear-gradient(rgba(10, 25, 49, 0.92), rgba(21, 48, 91, 0.92)), url('images/banner.jpg') no-repeat center center/cover;
             color: var(--white);
             text-align: center;
             padding: 60px 20px;
@@ -390,6 +389,123 @@
             margin-top: 30px;
         }
 
+        /* --- JANELA POP-UP (MODAL) DO PIX --- */
+        .pix-modal {
+            display: none; /* Escondido por padrão */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .pix-modal-content {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 480px;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-align: center;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close-modal-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: var(--text-muted);
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        .close-modal-btn:hover {
+            color: var(--primary-dark);
+        }
+
+        .pix-modal h3 {
+            color: var(--primary-dark);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .pix-modal-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        /* Caixa onde fica a chave copiada */
+        .pix-key-container {
+            background-color: var(--light-bg);
+            border: 2px solid var(--accent-blue);
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .pix-key-text {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--primary-dark);
+            word-break: break-all;
+            text-align: left;
+            padding-right: 10px;
+        }
+
+        .copy-again-btn {
+            background-color: var(--accent-blue);
+            color: var(--white);
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: background-color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .copy-again-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Instruções de pagamento */
+        .pix-instructions {
+            text-align: left;
+            margin-bottom: 20px;
+            padding-left: 20px;
+            font-size: 0.9rem;
+        }
+
+        .pix-instructions li {
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .pix-thanks {
+            font-weight: 700;
+            color: var(--accent-gold);
+            font-size: 1.05rem;
+        }
+
         /* --- FOOTER --- */
         footer {
             background-color: var(--primary-dark);
@@ -486,7 +602,7 @@
         </div>
     </section>
 
-    <!-- CATÁLOGO (TRAZIDO PARA CIMA) -->
+    <!-- CATÁLOGO -->
     <section class="catalog-section" id="catalogo">
         <div class="container">
             <div class="section-title">
@@ -523,7 +639,7 @@
                         <span class="product-category">Handebol</span>
                         <h3 class="product-title">Cola de Handebol</h3>
                         <p class="product-price">R$ 35,00</p>
-                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Item</a>
+                        <a href="https://loja.infinitepay.io/aaanwnc/hqh5161-cola-para-handebol-150g-handcola-tampa-de-" class="product-btn" target="_blank">Apoiar Item</a>
                     </div>
                 </div>
 
@@ -537,7 +653,7 @@
                         <span class="product-category">Futsal</span>
                         <h3 class="product-title">Treino Extra - Futsal Feminino</h3>
                         <p class="product-price">R$ 120,00</p>
-                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                        <a href="https://loja.infinitepay.io/aaanwnc/bny6173-treino-extra---futsal-feminino" class="product-btn" target="_blank">Apoiar Treino</a>
                     </div>
                 </div>
 
@@ -551,7 +667,7 @@
                         <span class="product-category">Futsal</span>
                         <h3 class="product-title">Treino Extra - Futsal Masculino</h3>
                         <p class="product-price">R$ 120,00</p>
-                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                        <a href="https://loja.infinitepay.io/aaanwnc/anw6490-treino-extra---futsal-masculino" class="product-btn" target="_blank">Apoiar Treino</a>
                     </div>
                 </div>
 
@@ -565,7 +681,7 @@
                         <span class="product-category">Vôlei</span>
                         <h3 class="product-title">Treino Extra - Vôlei Feminino</h3>
                         <p class="product-price">R$ 120,00</p>
-                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                        <a href="https://loja.infinitepay.io/aaanwnc/ssj6428-treino-extra---volei-feminino" class="product-btn" target="_blank">Apoiar Treino</a>
                     </div>
                 </div>
 
@@ -579,7 +695,7 @@
                         <span class="product-category">Vôlei</span>
                         <h3 class="product-title">Treino Extra - Vôlei Masculino</h3>
                         <p class="product-price">R$ 120,00</p>
-                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                        <a href="https://loja.infinitepay.io/aaanwnc/ipm5892-treino-extra---volei-masculino" class="product-btn" target="_blank">Apoiar Treino</a>
                     </div>
                 </div>
 
@@ -593,7 +709,7 @@
                         <span class="product-category">Futebol de Campo</span>
                         <h3 class="product-title">Treino Extra - Futebol de Campo</h3>
                         <p class="product-price">R$ 120,00</p>
-                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                        <a href="https://loja.infinitepay.io/aaanwnc/bbw6355-treino-extra---futebol-de-campo" class="product-btn" target="_blank">Apoiar Treino</a>
                     </div>
                 </div>
 
@@ -607,7 +723,7 @@
                         <span class="product-category">Handebol</span>
                         <h3 class="product-title">Treino Extra - Handebol Feminino</h3>
                         <p class="product-price">R$ 120,00</p>
-                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                        <a href="https://loja.infinitepay.io/aaanwnc/lrs2727-treino-extra---handebol-feminino" class="product-btn" target="_blank">Apoiar Treino</a>
                     </div>
                 </div>
 
@@ -621,7 +737,7 @@
                         <span class="product-category">Handebol</span>
                         <h3 class="product-title">Treino Extra - Handebol Masculino</h3>
                         <p class="product-price">R$ 120,00</p>
-                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                        <a href="https://loja.infinitepay.io/aaanwnc/fjx1784-treino-extra---handebol-masculino" class="product-btn" target="_blank">Apoiar Treino</a>
                     </div>
                 </div>
 
@@ -635,7 +751,7 @@
                         <span class="product-category">Basquete</span>
                         <h3 class="product-title">Treino Extra - Basquete Feminino</h3>
                         <p class="product-price">R$ 120,00</p>
-                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                        <a href="https://loja.infinitepay.io/aaanwnc/ckl7672-treino-extra---basquete-feminino" class="product-btn" target="_blank">Apoiar Treino</a>
                     </div>
                 </div>
 
@@ -649,7 +765,7 @@
                         <span class="product-category">Basquete</span>
                         <h3 class="product-title">Treino Extra - Basquete Masculino</h3>
                         <p class="product-price">R$ 120,00</p>
-                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                        <a href="https://loja.infinitepay.io/aaanwnc/eux7332-treino-extra---basquete-masculino" class="product-btn" target="_blank">Apoiar Treino</a>
                     </div>
                 </div>
 
@@ -663,7 +779,7 @@
                         <span class="product-category">Cabo de Guerra</span>
                         <h3 class="product-title">Treino Extra - Cabo de Guerra</h3>
                         <p class="product-price">R$ 120,00</p>
-                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                        <a href="https://loja.infinitepay.io/aaanwnc/xqi4974-treino-extra---cabo-de-guerra" class="product-btn" target="_blank">Apoiar Treino</a>
                     </div>
                 </div>
 
@@ -677,7 +793,7 @@
                         <span class="product-category">Natação</span>
                         <h3 class="product-title">Treino Extra - Natação</h3>
                         <p class="product-price">R$ 120,00</p>
-                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                        <a href="https://loja.infinitepay.io/aaanwnc/iax4468-treino-extra---natacao" class="product-btn" target="_blank">Apoiar Treino</a>
                     </div>
                 </div>
 
@@ -691,7 +807,7 @@
                         <span class="product-category">Cheerleading</span>
                         <h3 class="product-title">Treino Extra - Cheerleading</h3>
                         <p class="product-price">R$ 120,00</p>
-                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                        <a href="https://loja.infinitepay.io/aaanwnc/bxe4016-treino-extra---cheerleading" class="product-btn" target="_blank">Apoiar Treino</a>
                     </div>
                 </div>
 
@@ -705,7 +821,7 @@
                         <span class="product-category">Atletismo</span>
                         <h3 class="product-title">Treino Extra - Atletismo</h3>
                         <p class="product-price">R$ 120,00</p>
-                        <a href="SUA_URL_DA_INFINITEPAY_AQUI" class="product-btn" target="_blank">Apoiar Treino</a>
+                        <a href="https://loja.infinitepay.io/aaanwnc/dyd9539-treino-extra---atletismo" class="product-btn" target="_blank">Apoiar Treino</a>
                     </div>
                 </div>
 
@@ -718,7 +834,7 @@
                         <span class="product-category">Campanha</span>
                         <h3 class="product-title">Doação Livre (Qualquer Valor)</h3>
                         <p class="product-price">Defina o valor</p>
-                        <a href="SUA_URL_DOACAO_LIVRE_OU_PIX" class="product-btn" style="background-color: var(--accent-gold);" target="_blank">Fazer Doação</a>
+                        <a href="#" class="product-btn" style="background-color: var(--accent-gold);" onclick="openPixModal(event)">Fazer Doação</a>
                     </div>
                 </div>
 
@@ -726,7 +842,7 @@
         </div>
     </section>
 
-    <!-- MANIFESTO / NOSSA HISTÓRIA (MOVIDO PARA BAIXO) -->
+    <!-- MANIFESTO / NOSSA HISTÓRIA -->
     <section class="manifesto-section" id="manifesto">
         <div class="container manifesto-container">
             <div class="manifesto-title">
@@ -754,6 +870,29 @@
         </div>
     </section>
 
+    <!-- POP-UP / MODAL DO PIX -->
+    <div id="pixModal" class="pix-modal" onclick="handleOutsideClick(event)">
+        <div class="pix-modal-content">
+            <button class="close-modal-btn" onclick="closePixModal()">&times;</button>
+            <h3>🦁 Chave Pix Copiada!</h3>
+            <p class="pix-modal-desc">A chave Pix da A.A.A.W.N.C. foi copiada para a área de transferência do seu dispositivo.</p>
+            
+            <div class="pix-key-container">
+                <span id="pixKeyText" class="pix-key-text">financeiroaaawnc@gmail.com</span>
+                <button class="copy-again-btn" onclick="copyPixKeyOnly()">Copiar</button>
+            </div>
+
+            <ol class="pix-instructions">
+                <li>Abra o aplicativo de pagamentos do seu <strong>banco</strong>.</li>
+                <li>Selecione a área do <strong>Pix</strong> e vá em <strong>Transferir / Pagar</strong>.</li>
+                <li>Cole a nossa chave Pix (ou digite se preferir).</li>
+                <li>Insira o <strong>valor que deseja doar</strong> e confirme.</li>
+            </ol>
+
+            <p class="pix-thanks">Sua ajuda nos coloca mais perto da quinta estrela! Muito obrigado! ⭐</p>
+        </div>
+    </div>
+
     <!-- FOOTER -->
     <footer>
         <div class="container">
@@ -776,12 +915,12 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 A.A.A.W.N.C. - Medicina UFF. Todos os direitos reservados.</p>
-		<p>CNPJ: 61.190.917/0001-90<p>
+				<p>CNPJ: 61.190.917/0001-90</p>
             </div>
         </div>
     </footer>
 
-    <!-- SCRIPT DE FILTROS COM COMPORTAMENTO EXCLUSIVO DA DOAÇÃO LIVRE -->
+    <!-- SCRIPT DE FILTROS COM COMPORTAMENTO EXCLUSIVO DA DOAÇÃO LIVRE E CONTROLE DO MODAL -->
     <script>
         function filterCatalogBySelect() {
             const select = document.getElementById('modalityFilter');
@@ -800,6 +939,70 @@
                     card.style.display = 'none';
                 }
             });
+        }
+
+        // --- SISTEMA DO MODAL DO PIX ---
+
+        // Abre o modal e copia a chave Pix para a área de transferência
+        function openPixModal(event) {
+            // Impede o link '#' de subir a tela
+            if (event) event.preventDefault(); 
+            
+            const pixKey = document.getElementById('pixKeyText').innerText;
+            
+            // Tenta copiar via API moderna do navegador
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(pixKey).then(() => {
+                    showModalElement();
+                }).catch(err => {
+                    // Fallback se falhar
+                    showModalElement();
+                });
+            } else {
+                // Fallback para navegadores muito antigos ou restrições de permissão
+                const textArea = document.createElement("textarea");
+                textArea.value = pixKey;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand("copy");
+                document.body.removeChild(textArea);
+                showModalElement();
+            }
+        }
+
+        function showModalElement() {
+            document.getElementById('pixModal').style.display = 'flex';
+        }
+
+        // Fecha o modal
+        function closePixModal() {
+            document.getElementById('pixModal').style.display = 'none';
+        }
+
+        // Botão secundário de cópia dentro do modal, caso o usuário queira copiar novamente
+        function copyPixKeyOnly() {
+            const pixKey = document.getElementById('pixKeyText').innerText;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(pixKey).then(() => {
+                    alert("Chave Pix copiada com sucesso!");
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = pixKey;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand("copy");
+                document.body.removeChild(textArea);
+                alert("Chave Pix copiada com sucesso!");
+            }
+        }
+
+        // Fecha o modal se o usuário clicar na área escura (fora da caixa de diálogo)
+        function handleOutsideClick(event) {
+            const modal = document.getElementById('pixModal');
+            if (event.target === modal) {
+                closePixModal();
+            }
         }
     </script>
 </body>
